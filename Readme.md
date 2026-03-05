@@ -1,9 +1,14 @@
 # 🎬 MovieLens AI
 
-MovieLens AI is a web application that allows users to fetch movie insights by entering an **IMDb movie ID**.
-The application retrieves movie metadata, analyzes the movie using AI, and generates **audience sentiment insights**.
+MovieLens AI is a web application that allows users to fetch movie insights by entering an IMDb movie ID. The application retrieves movie metadata, analyzes the movie using AI, and generates audience sentiment insights.
 
 The project also includes a **credit-based usage system**, authentication, and a payment system for purchasing additional credits.
+
+Users who are **not logged in receive 2 free credits** to try the application.
+**Logged-in users receive 5 credits**, and each movie insight request consumes **1 credit**.
+
+If a user runs out of credits, they must **purchase additional credits** in order to continue using the movie insight feature.
+
 
 ---
 
