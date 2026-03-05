@@ -5,6 +5,7 @@ node_modules
 /src/generated/prisma
 
 /src/generated/prisma
+/dist
 
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
