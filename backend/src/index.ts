@@ -15,7 +15,7 @@ dotenv.config();
 const PORT = process.env.PORT || 8000;
 const app: Application = express();
 const maxAge = 3 * 24 * 60 * 60 * 1000;
-const allowedOrigins = process.env.FRONTEND_URI!
+const allowedOrigins = [process.env.FRONTEND_URI!,"http://localhost:3000"]
 
 app.set("trust proxy", true);
 app.use(express.json());

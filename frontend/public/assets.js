@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "http://localhost:8000";
+const baseURL = "https://movie-lens-ai.onrender.com";
 export const backendUrl = axios.create({ baseURL });
 backendUrl.interceptors.request.use((cfg) => {
   const token = localStorage.getItem("token");
