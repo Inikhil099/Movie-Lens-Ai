@@ -24,8 +24,16 @@ router.get(
 router.post(
   "/movie/:id",
   asyncHandler(async (req: Request, res: Response) => {
-    const { guestToken: token } = req.cookies;
     const { id } = req.params;
+
+     let token;
+
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
     if (!token) {
       return res.status(400).send("Invalid token");
     }
