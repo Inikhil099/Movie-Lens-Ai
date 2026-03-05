@@ -10,12 +10,18 @@ import jwt from "jsonwebtoken";
 import axios from "axios";
 const router = Router();
 
+const maxAge = 1000 * 60 * 60 * 24 * 3;
+
 // return a token to the user if user is not logged in (guest user)
 router.get(
   "/token",
   asyncHandler((req: Request, res: Response) => {
     const token = jwt.sign({ credits: 2 }, process.env.JWT_SECRET!);
-    res.cookie("guestToken", token);
+    res.cookie("guestToken", token, {
+      maxAge,
+      secure: true,
+      sameSite: "none",
+    });
     return res.status(200).json({ token });
   }),
 );
@@ -53,6 +59,11 @@ router.post(
       //@ts-ignore
 
       jwt.sign({ credits: payload.credits - 1 }, process.env.JWT_SECRET!),
+      {
+        maxAge,
+        secure: true,
+        sameSite: "none",
+      },
     );
     return res.status(200).json({ movieDetails: movieDetails.data });
   }),

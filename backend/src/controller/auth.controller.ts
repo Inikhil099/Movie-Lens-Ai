@@ -26,10 +26,11 @@ export async function handleSignup(req: Request, res: Response) {
     id: user.id,
     email: user.email,
   });
-  res.cookie("uid", token, {
-    maxAge,
-    httpOnly: true,
-  });
+  res.cookie("uid", token,{
+      maxAge,
+      secure: true,
+      sameSite: "none",
+    });
   return res.status(201).json({
     id: user.id,
     email: user.email,
@@ -52,9 +53,10 @@ export async function handleLogin(req: Request, res: Response) {
     email: user.email,
   });
   res.cookie("uid", token, {
-    maxAge,
-    httpOnly: true,
-  });
+      maxAge,
+      secure: true,
+      sameSite: "none",
+    });
   return res.status(201).json({
     _id: user.id,
     email: user.email,
