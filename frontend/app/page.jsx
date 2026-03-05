@@ -18,7 +18,7 @@ const page = () => {
     const getme = async () => {
       setisLoading(true);
       try {
-        const res = await axios.get(`${backendUrl}/user/me`, {
+        const res = await backendUrl.get(`/user/me`, {
           withCredentials: true,
         });
         if (res.status === 200) {

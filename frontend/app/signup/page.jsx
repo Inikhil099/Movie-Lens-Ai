@@ -44,15 +44,15 @@ export default function Signup() {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post(
-        `${backendUrl}/auth/signup`,
+      const res = await backendUrl.post(
+        `/auth/signup`,
         { name, email, password },
         { withCredentials: true },
       );
       if (res.status == 201) {
         dispatch(setUserInfo(res.data));
-        localStorage.setItem("token",res.data.token)
-        router.push("/")
+        localStorage.setItem("token", res.data.token);
+        router.push("/");
         toast.success("signed in successfully");
       }
     } catch (error) {

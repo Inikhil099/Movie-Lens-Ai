@@ -1,7 +1,7 @@
 import axios from "axios";
-const baseURL = "https://movie-lens-ai.onrender.com";
+const baseURL = "http://localhost:8000";
 export const backendUrl = axios.create({ baseURL });
-API.interceptors.request.use((cfg) => {
+backendUrl.interceptors.request.use((cfg) => {
   const token = localStorage.getItem("token");
   if (token) cfg.headers.Authorization = `Bearer ${token}`;
   return cfg;

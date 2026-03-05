@@ -47,8 +47,8 @@ export default function Landing() {
     }
     try {
       // tt0848228
-      const res = await axios.post(
-        `${backendUrl}/api/guest/movie/${imdbId}`,
+      const res = await backendUrl.post(
+        `/api/guest/movie/${imdbId}`,
         { token: localStorage.getItem("guestToken") },
         {
           withCredentials: true,
@@ -73,15 +73,15 @@ export default function Landing() {
     }
     try {
       // tt0848228
-      const res = await axios.get(`${backendUrl}/api/movie/${imdbId}`, {
+      const res = await backendUrl.get(`/api/movie/${imdbId}`, {
         withCredentials: true,
       });
       if (res.status === 200) {
         setMovie(res.data.movieDetails);
         dispatch(setUserInfo(res.data.user));
         setLoadingInsight(true);
-        const aiSummary = await axios.post(
-          `${backendUrl}/api/movie/ai-summary`,
+        const aiSummary = await backendUrl.post(
+          `/api/movie/ai-summary`,
           {
             moviename: res.data.movieDetails.Title,
           },
@@ -107,7 +107,7 @@ export default function Landing() {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.get(`${backendUrl}/user/logout`, {
+      const res = await backendUrl.get(`/user/logout`, {
         withCredentials: true,
       });
       if (res.status == 200) {
@@ -123,7 +123,7 @@ export default function Landing() {
     const GetGuestCredits = async () => {
       // function to give 2 credits to the guest user
       try {
-        const res = await axios.get(`${backendUrl}/api/guest/token`, {
+        const res = await backendUrl.get(`/api/guest/token`, {
           withCredentials: true,
         });
         if (res.status == 200) {

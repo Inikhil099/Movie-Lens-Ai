@@ -39,8 +39,8 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(
-        `${backendUrl}/auth/login`,
+      const res = await backendUrl.post(
+        `/auth/login`,
         { email, password },
         { withCredentials: true },
       );
