@@ -53,10 +53,6 @@ router.post(
       //@ts-ignore
 
       jwt.sign({ credits: payload.credits - 1 }, process.env.JWT_SECRET!),
-      {
-        httpOnly: true,
-        sameSite: "lax",
-      },
     );
     return res.status(200).json({ movieDetails: movieDetails.data });
   }),
