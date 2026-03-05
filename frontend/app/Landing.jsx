@@ -56,6 +56,7 @@ export default function Landing() {
       );
       if (res.status === 200) {
         setMovie(res.data.movieDetails);
+        localStorage.setItem("token", res.data.token);
         setLoadingInsight(true);
       }
     } catch (error) {
@@ -113,6 +114,7 @@ export default function Landing() {
       if (res.status == 200) {
         toast.success(res.data);
         dispatch(setUserInfo(undefined));
+        localStorage.removeItem("token");
       }
     } catch (error) {
       toast.error(error.response.data);
@@ -127,14 +129,14 @@ export default function Landing() {
           withCredentials: true,
         });
         if (res.status == 200) {
-          localStorage.setItem("guestToken", res.data.token);
+          localStorage.setItem("token", res.data.token);
         }
       } catch (error) {
         toast.error(error.response.data);
       }
     };
     if (!userinfo) {
-      if (localStorage.getItem("guestToken")) {
+      if (localStorage.getItem("token")) {
         return;
       }
       GetGuestCredits();

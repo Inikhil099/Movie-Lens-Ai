@@ -7,7 +7,7 @@ export async function getMovieDetails(req: Request, res: Response) {
   const { id } = req.params;
   const user = await prisma.user.findUnique({
     where: {
-      id: req.user.id,
+      email: req.user.email,
     },
   });
   if (user?.credits == 0) {
@@ -22,7 +22,7 @@ export async function getMovieDetails(req: Request, res: Response) {
 
   const updatedUser = await prisma.user.update({
     where: {
-      id: req.user.id,
+      email: req.user.email,
     },
     data: {
       credits: {

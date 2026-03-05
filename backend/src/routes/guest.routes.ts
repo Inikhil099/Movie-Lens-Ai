@@ -17,11 +17,6 @@ router.get(
   "/token",
   asyncHandler((req: Request, res: Response) => {
     const token = jwt.sign({ credits: 2 }, process.env.JWT_SECRET!);
-    res.cookie("guestToken", token, {
-      maxAge,
-      secure: false,
-      sameSite: "none",
-    });
     return res.status(200).json({ token });
   }),
 );
@@ -51,21 +46,12 @@ router.post(
     if (!movieDetails) {
       return res.status(404).send("Movie not found or invalid ID");
     }
+    //@ts-ignore
+    const newtoken = jwt.sign({ credits: payload.credits - 1 }, process.env.JWT_SECRET!)
 
-    // returning new cookie with the decreased value of credits inside the payload
+    
 
-    res.cookie(
-      "guestToken",
-      //@ts-ignore
-
-      jwt.sign({ credits: payload.credits - 1 }, process.env.JWT_SECRET!),
-      {
-        maxAge,
-        secure: false,
-        sameSite: "none",
-      },
-    );
-    return res.status(200).json({ movieDetails: movieDetails.data });
+    return res.status(200).json({ movieDetails: movieDetails.data,token:newtoken });
   }),
 );
 
