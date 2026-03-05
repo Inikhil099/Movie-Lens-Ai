@@ -27,7 +27,7 @@ app.use(
     maxAge,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   }),
-);
+); 
 
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);
