@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm install && npx tsc -b",
+    "build": "npm install && npm run prisma",
     "dev": "node dist/index.js",
     "prisma": "npx prisma generate",
-    "start": "npm run prisma  && npm run dev",
+    "start": "npx tsc -b  && npm run dev",
     "nodemon": "nodemon dist/index.js"
   },
   "keywords": [],
