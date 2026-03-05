@@ -7,8 +7,8 @@
   "scripts": {
     "build": "npm install && npx tsc -b",
     "dev": "node dist/index.js",
-    "prisma":"npx prisma generate",
-    "start": "npm run prisma && npm run build && npm run dev",
+    "prisma": "npx prisma generate",
+    "start": "npm run prisma  && npm run dev",
     "nodemon": "nodemon dist/index.js"
   },
   "keywords": [],
