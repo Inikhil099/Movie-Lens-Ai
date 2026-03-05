@@ -316,7 +316,7 @@ frontend
 ## Clone Repository
 
 ```
-git clone https://github.com/Inikhil099/Movie-Lens-Ai
+git clone https://github.com/Inikhil099/Movie-Lens-Ai.git
 cd movielens-ai
 ```
 
@@ -349,7 +349,7 @@ Run migrations
 
 ```
 npx prisma migrate deploy
-```
+```as
 
 Build project
 
