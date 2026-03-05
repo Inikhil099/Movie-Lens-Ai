@@ -19,7 +19,7 @@ router.get(
     const token = jwt.sign({ credits: 2 }, process.env.JWT_SECRET!);
     res.cookie("guestToken", token, {
       maxAge,
-      secure: true,
+      secure: false,
       sameSite: "none",
     });
     return res.status(200).json({ token });
@@ -61,7 +61,7 @@ router.post(
       jwt.sign({ credits: payload.credits - 1 }, process.env.JWT_SECRET!),
       {
         maxAge,
-        secure: true,
+        secure: false,
         sameSite: "none",
       },
     );

@@ -46,6 +46,7 @@ export default function Login() {
       );
       if (res.status == 201) {
         dispatch(setUserInfo(res.data));
+        localStorage.setItem("token", res.data.token);
         router.push("/");
         toast.success("Logged in successfully");
       }

@@ -26,16 +26,13 @@ export async function handleSignup(req: Request, res: Response) {
     id: user.id,
     email: user.email,
   });
-  res.cookie("uid", token,{
-      maxAge,
-      secure: true,
-      sameSite: "none",
-    });
+
   return res.status(201).json({
     id: user.id,
     email: user.email,
-    name:user.name,
+    name: user.name,
     credits: user.credits,
+    token,
   });
 }
 
@@ -52,15 +49,12 @@ export async function handleLogin(req: Request, res: Response) {
     id: user.id,
     email: user.email,
   });
-  res.cookie("uid", token, {
-      maxAge,
-      secure: true,
-      sameSite: "none",
-    });
+
   return res.status(201).json({
     _id: user.id,
     email: user.email,
-    name:user.name,
+    name: user.name,
     credits: user.credits,
+    token,
   });
 }

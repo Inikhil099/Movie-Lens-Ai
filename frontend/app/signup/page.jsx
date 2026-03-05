@@ -51,6 +51,7 @@ export default function Signup() {
       );
       if (res.status == 201) {
         dispatch(setUserInfo(res.data));
+        localStorage.setItem("token",res.data.token)
         router.push("/")
         toast.success("signed in successfully");
       }
