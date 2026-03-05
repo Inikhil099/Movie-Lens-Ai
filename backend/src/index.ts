@@ -42,3 +42,6 @@ app.get("/health", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log("app running on http://localhost:" + PORT);
 });
+
+
+//  # DATABASE_URL="postgres://4cb9e79d7114c26ddddbd6be9b13f4f8813df69104818f2d8fd69652ae85e59a:sk_-zPePETw7GYp80HB-xV-K@db.prisma.io:5432/postgres?sslmode=require"
