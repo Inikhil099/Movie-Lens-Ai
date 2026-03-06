@@ -317,6 +317,7 @@ frontend
 
 ```
 git clone https://github.com/Inikhil099/Movie-Lens-Ai.git
+
 cd movielens-ai
 ```
 
