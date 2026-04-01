@@ -115,6 +115,7 @@ export default function Landing() {
         toast.success(res.data);
         dispatch(setUserInfo(undefined));
         localStorage.removeItem("token");
+        window.location.reload();
       }
     } catch (error) {
       toast.error(error.response.data);

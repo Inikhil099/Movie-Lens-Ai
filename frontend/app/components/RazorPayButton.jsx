@@ -58,6 +58,9 @@ export default function RazorPayButton() {
     <>
       <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       <button
+        onClick={() =>
+          alert("Payment feature doesn't work because of razorpay keys ")
+        }
         className="cursor-pointer bg-cyan-300 p-2.5 rounded-lg"
         // onClick={handlePayment}
         disabled={isLoading}

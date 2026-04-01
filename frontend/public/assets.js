@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://movie-lens-ai.onrender.com";
+const baseURL = "https://remix-andale-reynolds-completing.trycloudflare.com";
 export const backendUrl = axios.create({ baseURL });
 backendUrl.interceptors.request.use((cfg) => {
   const token = localStorage.getItem("token");
