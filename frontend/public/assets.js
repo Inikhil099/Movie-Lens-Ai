@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://remix-andale-reynolds-completing.trycloudflare.com";
+const baseURL = "https://holders-demographic-approval-suited.trycloudflare.com";
 export const backendUrl = axios.create({ baseURL });
 backendUrl.interceptors.request.use((cfg) => {
   const token = localStorage.getItem("token");
