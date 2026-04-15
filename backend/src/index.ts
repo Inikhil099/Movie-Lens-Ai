@@ -36,7 +36,7 @@ app.use("/api/payment",PaymentRouter)
 app.use("/api/guest",GuestRouter)
 
 app.get("/health", (req: Request, res: Response) => {
-  return res.status(200).json({ status: "ok", msg: "Server is running" });
+  return res.status(200).json({ status: "ok", msg: "Movie Lens Ai Server is running" });
 });
 
 app.listen(PORT, () => {
