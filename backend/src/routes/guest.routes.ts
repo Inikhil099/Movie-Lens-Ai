@@ -12,11 +12,13 @@ const router = Router();
 
 const maxAge = 1000 * 60 * 60 * 24 * 3;
 
+const guestTokenSecret = "thisisfortheguesttokensecret099"
+
 // return a token to the user if user is not logged in (guest user)
 router.get(
   "/token",
   asyncHandler((req: Request, res: Response) => {
-    const token = jwt.sign({ credits: 2 }, process.env.JWT_SECRET!);
+    const token = jwt.sign({ credits: 2 }, guestTokenSecret);
     return res.status(200).json({ token });
   }),
 );
@@ -38,7 +40,7 @@ router.post(
       return res.status(400).send("Invalid token");
     }
 
-    const payload = jwt.verify(token, process.env.JWT_SECRET!);
+    const payload = jwt.verify(token, guestTokenSecret);
 
     // check if credits not equal to 0 if 0 return with not credits left
     if (!payload) {
@@ -55,7 +57,7 @@ router.post(
       return res.status(404).send("Movie not found or invalid ID");
     }
     //@ts-ignore
-    const newtoken = jwt.sign({ credits: payload.credits - 1 }, process.env.JWT_SECRET!)
+    const newtoken = jwt.sign({ credits: payload.credits - 1 }, guestTokenSecret)
 
     
 
