@@ -29,10 +29,12 @@
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "node-cron": "^4.2.1",
     "nodemon": "^3.1.14",
     "pg": "^8.19.0",
     "razorpay": "^2.9.6",
-    "redis": "^5.11.0"
+    "redis": "^5.11.0",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@types/pg": "^8.18.0",

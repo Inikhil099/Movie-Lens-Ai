@@ -5,6 +5,7 @@ import express, {
 } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import cron from "node-cron"
 import cookieParser from "cookie-parser";
 import { AuthRouter } from "./routes/auth.routes.js";
 import { UserRouter } from "./routes/user.routes.js";
@@ -29,6 +30,15 @@ app.use(
   }),
 );
 
+cron.schedule("*/10 * * * *", async () => {
+  try {
+    const res = await fetch(`${process.env.ORIGIN}/health`);
+    console.log("Pinged:", res.status);
+  } catch (err:any) {
+    console.error("Error:", err.message);
+  }
+});
+
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);
 app.use("/api/movie", MovieRouter);
@@ -42,6 +52,3 @@ app.get("/health", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log("app running on http://localhost:" + PORT);
 });
-
-
-//  # DATABASE_URL="postgres://4cb9e79d7114c26ddddbd6be9b13f4f8813df69104818f2d8fd69652ae85e59a:sk_-zPePETw7GYp80HB-xV-K@db.prisma.io:5432/postgres?sslmode=require"
