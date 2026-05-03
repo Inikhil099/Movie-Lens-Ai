@@ -45,7 +45,7 @@ setInterval(
     const data = await f.text();
     console.log(data);
   },
-  1000 * 60 * 5,
+  1000 * 60 * 10,
 );
 
 app.use("/auth", AuthRouter);
