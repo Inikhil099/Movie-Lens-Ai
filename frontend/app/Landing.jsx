@@ -60,7 +60,8 @@ export default function Landing() {
         setLoadingInsight(true);
       }
     } catch (error) {
-      toast.error(error.response.data);
+      console.log(error)
+      toast.error(error.response.data)
     }
   };
 
@@ -102,7 +103,7 @@ export default function Landing() {
         }
       }
     } catch (error) {
-      // toast.error(error.response.data);
+      toast.error(error.response.data);
     }
   };
 

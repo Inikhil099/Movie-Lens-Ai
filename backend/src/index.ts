@@ -30,23 +30,16 @@ app.use(
   }),
 );
 
-// cron.schedule("*/10 * * * *", async () => {
-//   try {
-//     const res = await fetch(`${process.env.ORIGIN}/health`);
-//     console.log("Pinged:", res.status);
-//   } catch (err:any) {
-//     console.error("Error:", err.message);
-//   }
-// });
 
-setInterval(
-  async () => {
-    const f = await fetch(`${process.env.ORIGIN}/health`);
-    const data = await f.text();
-    console.log(data);
-  },
-  1000 * 60 * 10,
-);
+
+// setInterval(
+//   async () => {
+//     const f = await fetch(`${process.env.ORIGIN}/health`);
+//     const data = await f.text();
+//     console.log(data);
+//   },
+//   1000 * 60 * 10,
+// );
 
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);
